@@ -1,7 +1,7 @@
 <!--
  * @Author: hongqianhui hongqianhui@bytedance.com
  * @Date: 2022-05-05 21:59:53
- * @LastEditTime: 2022-05-05 22:02:17
+ * @LastEditTime: 2022-05-05 22:49:41
  * @FilePath: /c_pro/ffmpeg_demos/README.md
  * @Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
 -->
@@ -22,3 +22,8 @@ pkg-config --cflags libavcodec
 ## subtitle_1
 
 需要安装sdl2、libass等，具体可以查看Makefile的依赖项。
+
+
+## vin_vout
+
+视频录制

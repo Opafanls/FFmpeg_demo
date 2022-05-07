@@ -1,7 +1,7 @@
 /*
  * @Author: hongqianhui
  * @Date: 2022-05-01 23:40:34
- * @LastEditTime: 2022-05-05 21:28:16
+ * @LastEditTime: 2022-05-07 17:54:24
  * @LastEditors: hongqianhui hongqianhui@bytedance.com
  * @Description: ffmpeg解码,sdl显示数据
  * @FilePath: /c_pro/sdl_demo/sdl_main.c
@@ -263,14 +263,15 @@ int main(int argv, char **args)
                 break;
             }
             av_frame_unref(frame);
-            // av_frame_unref(dst);
+            av_frame_unref(dst);
         }
     }
     if (av_codec_ctx)
     {
         avcodec_close(av_codec_ctx);
     }
-    av_frame_unref(dst);
+    av_frame_free(&dst);
+    av_frame_free(&frame);
     avformat_close_input(&fmt_ctx);
     av_packet_free(&pkt);
     free(pCtx);
