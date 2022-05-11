@@ -1,7 +1,7 @@
 /*
  * @Author: hongqianhui
  * @Date: 2022-05-01 23:40:34
- * @LastEditTime: 2022-05-07 17:54:24
+ * @LastEditTime: 2022-05-09 20:31:16
  * @LastEditors: hongqianhui hongqianhui@bytedance.com
  * @Description: ffmpeg解码,sdl显示数据
  * @FilePath: /c_pro/sdl_demo/sdl_main.c
@@ -122,6 +122,7 @@ int main(int argv, char **args)
     {
         printf("init ass_file ok!\n");
     }
+    
 
     codec = avcodec_find_decoder(v_stream->codecpar->codec_id);
     av_codec_ctx = avcodec_alloc_context3(codec);
@@ -216,7 +217,8 @@ int main(int argv, char **args)
                     al = v_stream->time_base;
                     double v = al.num / (double) al.den;
                     long long ts = frame->pts*v*1000;
-                    printf("ts: %lld,pts:%lld,%d:%d\n", ts,frame->pts,v_stream->time_base.num, v_stream->time_base.den);
+                    printf("ts: %lld,pts:%lld,pkt_dts:%lld,%d:%d\n", ts,frame->pts
+                    , frame->pkt_dts, v_stream->time_base.num, v_stream->time_base.den);
                     pCtx->img = ass_img(ass_render, ass_track, ts);
                     ret = process_frame(pCtx, frame, dst);
                     if (ret < 0)

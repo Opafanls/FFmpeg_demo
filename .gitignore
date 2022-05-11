@@ -1,3 +1,5 @@
 sdl_main
 test.bmp
 *.dSYM
+.vscode
+.DS_Store
